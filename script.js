@@ -357,7 +357,7 @@
     if (alive) requestAnimationFrame(animateConfetti);
   }
 
-  // ── Share & Download ──
+  // ── Share ──
   $('#btn-share').addEventListener('click', async () => {
     if (audioBlob && navigator.canShare) {
       const ext = audioBlob.type.includes('mp4') ? 'mp4' : audioBlob.type.includes('ogg') ? 'ogg' : 'webm';
@@ -374,18 +374,7 @@
         }
       } catch {}
     }
-    // Fallback: WhatsApp
     const msg = encodeURIComponent('Victoria said YES! Happy Valentine\'s Day 💝');
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
-  });
-
-  $('#btn-download').addEventListener('click', () => {
-    if (!audioBlob) return;
-    const ext = audioBlob.type.includes('mp4') ? 'mp4' : audioBlob.type.includes('ogg') ? 'ogg' : 'webm';
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(audioBlob);
-    a.download = `victoria-valentine.${ext}`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+    window.open(`https://wa.me/2347041386799?text=${msg}`, '_blank');
   });
 })();
