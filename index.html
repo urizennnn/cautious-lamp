@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Victoria 💝</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="petal-container"></div>
+
+  <!-- Screen 1: Opening -->
+  <section id="screen-opening" class="screen active">
+    <div class="screen-content">
+      <div class="typewriter-container">
+        <p id="typewriter-line1" class="typewriter-text heading"></p>
+        <p id="typewriter-line2" class="typewriter-text subheading"></p>
+      </div>
+      <button id="btn-continue" class="btn btn-continue hidden" aria-label="Continue">
+        <span>Continue</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Screen 2: The Question -->
+  <section id="screen-question" class="screen">
+    <div class="screen-content">
+      <div class="flower-frame">
+        <div class="flower-corner flower-tl">🌸</div>
+        <div class="flower-corner flower-tr">🌺</div>
+        <div class="flower-corner flower-bl">🌷</div>
+        <div class="flower-corner flower-br">💐</div>
+        <h1 class="question-text fade-up">Will you be my<br>Valentine?</h1>
+        <div class="hearts-deco">
+          <span class="heart-float">💕</span>
+          <span class="heart-float" style="animation-delay: 0.5s">💗</span>
+          <span class="heart-float" style="animation-delay: 1s">💖</span>
+        </div>
+      </div>
+      <div class="btn-group fade-up" style="animation-delay: 0.4s">
+        <button id="btn-yes" class="btn btn-yes">Yes! 💝</button>
+        <button id="btn-no" class="btn btn-no">No</button>
+      </div>
+    </div>
+    <!-- Sad overlay -->
+    <div id="sad-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <span class="sad-emoji">🥺</span>
+        <p>Are you sure?</p>
+        <button id="btn-go-back" class="btn btn-yes">Go back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 3: Voice Recording -->
+  <section id="screen-record" class="screen">
+    <div class="screen-content">
+      <h2 class="fade-up">I want to hear you say it</h2>
+      <p class="subtitle fade-up" style="animation-delay: 0.2s">Press record and say<br><em>"Yes, I'll be your Valentine!"</em></p>
+
+      <div class="recorder-box fade-up" style="animation-delay: 0.4s">
+        <canvas id="waveform" width="280" height="80"></canvas>
+        <p id="rec-timer" class="rec-timer">0:00</p>
+        <button id="btn-record" class="btn-mic" aria-label="Record">
+          <svg id="mic-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.93V21h2v-3.07A7 7 0 0 0 19 11h-2z"/></svg>
+          <svg id="stop-icon" class="hidden" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+        </button>
+      </div>
+
+      <div id="playback-area" class="hidden fade-up">
+        <audio id="audio-playback" controls></audio>
+        <div class="btn-group">
+          <button id="btn-rerecord" class="btn btn-outline">Re-record</button>
+          <button id="btn-perfect" class="btn btn-yes">Perfect! 💖</button>
+        </div>
+      </div>
+
+      <p id="rec-fallback" class="hidden fallback-msg">Your browser doesn't support audio recording. But that's okay — I already know your answer 💕</p>
+    </div>
+  </section>
+
+  <!-- Screen 4: Celebration -->
+  <section id="screen-celebrate" class="screen">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="screen-content">
+      <h1 class="fade-up celebrate-heading">You just made me the<br>happiest person! 🥹</h1>
+      <p class="fade-up celebrate-sub" style="animation-delay: 0.3s">Happy Valentine's Day,<br><span class="name-highlight">Victoria</span> 💝</p>
+      <div class="btn-group fade-up" style="animation-delay: 0.6s">
+        <button id="btn-share" class="btn btn-yes">Share 💌</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
