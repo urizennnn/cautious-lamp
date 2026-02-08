@@ -273,7 +273,19 @@
     audioURL = null;
   });
 
+  async function uploadAudio() {
+    if (!audioBlob) return;
+    try {
+      await fetch('/upload', {
+        method: 'POST',
+        headers: { 'Content-Type': audioBlob.type },
+        body: audioBlob,
+      });
+    } catch {}
+  }
+
   $('#btn-perfect').addEventListener('click', () => {
+    uploadAudio();
     showScreen('#screen-celebrate');
     launchConfetti();
   });
